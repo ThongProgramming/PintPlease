@@ -249,6 +249,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  json
   less-rails
   minitest
   mysql2
