@@ -1,13 +1,15 @@
-<% @data.each do |t| %>
-    <tr>
-      <td><%=t['author']['name'] %></td>
-      <td><%=t['beer']['name'] %></td>
-      <td><%= t['beer']['brewery'] %></td>
-      <td><%= t['rating'] %></td>
-      <td><%= t['likeCount'] %></td>
-      <br/>
-      <br/>
-      <br/>
-    </tr>
+<div class="container">
+  <table class="table">
 
-<%end %>
+    <% @data.each do |t| %>
+        <tr>
+          <td><%= t['author']['name'] %></td>
+          <td><%= t['beer']['name'] %></td>
+          <td><%= t['beer']['brewery'] %></td>
+          <td><%= t['rating'] %></td>
+          <td><%= t['likeCount'] %></td>
+        </tr>
+
+    <% end %>
+  </table>
+</div>

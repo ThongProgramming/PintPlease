@@ -9,6 +9,13 @@ CMD ["/sbin/my_init"]
 #   Build system and git.
 RUN /build/utilities.sh
 
+# Regenerate SSH host keys. baseimage-docker does not contain any, so you
+# have to do that yourself. You may also comment out this instruction; the
+# init system will auto-generate one during boot.
+RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
+#Enable the insecure key permanently
+RUN /usr/sbin/enable_insecure_key
+
 #   Ruby support.
 #RUN /build/ruby1.9.sh
 #RUN /build/ruby2.0.sh
@@ -28,5 +35,3 @@ ADD Gemfile.lock /myapp/Gemfile.lock
 ADD . /myapp
 
 RUN bundle install
-
-EXPOSE 22
